@@ -1,0 +1,262 @@
+@font-face {
+  font-family: Outfit;
+  src: url("../assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: YoungSerif;
+  src: url("../assets/fonts/young-serif/YoungSerif-Regular.ttf") format("truetype");
+}
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  max-width: 100svw;
+  min-height: 100dvh;
+  width: 100%;
+}
+
+strong {
+  color: hsl(30, 10%, 34%);
+  padding: 0 0 0 0.3em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  display: grid;
+  gap: 4em;
+  background: hsl(0, 0%, 100%);
+}
+
+h1 {
+  color: hsl(24, 5%, 18%);
+  font-size: clamp(2rem, 2.2rem + 2.2vw, 3.5rem);
+}
+
+h3 {
+  color: hsl(332, 51%, 32%);
+  font-size: clamp(1.8rem, 1rem + 1vw, 2.5rem);
+}
+
+h4 {
+  color: hsl(14, 45%, 36%);
+  font-size: clamp(1.8rem, 1.5rem + 1.5vw, 3rem);
+}
+
+h1, h4 {
+  font-family: "YoungSerif";
+  font-weight: 400;
+}
+
+li {
+  list-style-position: inside;
+}
+
+p, li, h3, td, th {
+  font-family: "Outfit";
+}
+
+p, li {
+  font-size: 1.6rem;
+  color: hsl(24, 5%, 18%);
+}
+
+header, main, footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 2em;
+  padding: 0 4em;
+}
+
+header > p {
+  line-height: 1.6;
+}
+header .preparation-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  padding: 3em;
+  border-radius: 1em;
+  background: hsl(330, 100%, 98%);
+}
+header .preparation-time ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+header .preparation-time ul li {
+  list-style: disc;
+}
+header .preparation-time ul li::marker {
+  color: hsl(332, 51%, 32%);
+}
+
+main section {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border-bottom: 1px solid hsl(30, 18%, 87%);
+  padding: 0 0 2em 0;
+  width: 100%;
+}
+main section ul, main section ol {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+main section ul li, main section ol li {
+  line-height: 1.6;
+}
+main section ul li::marker, main section ol li::marker {
+  color: hsl(14, 45%, 36%);
+  font-weight: 700;
+}
+
+footer table {
+  font-size: 1.6rem;
+  border-collapse: collapse;
+}
+footer table tr:not(:last-child) {
+  border-bottom: 1px solid hsl(30, 18%, 87%);
+}
+footer table th, footer table td {
+  width: clamp(8em, 8em + 8vw, 22em);
+  text-align: left;
+  padding: 1em 0 1em 0;
+}
+footer table th {
+  color: hsl(30, 10%, 34%);
+  font-weight: 600;
+}
+footer table td {
+  color: hsl(14, 45%, 36%);
+  font-weight: 800;
+}
+
+.credits {
+  position: fixed;
+  right: 0;
+  top: 30%;
+  width: 22em;
+  height: 14em;
+  padding: 0 1em;
+  border-radius: 1em 0 0 1em;
+  transition: box-shadow 300ms linear;
+}
+.credits label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(100%);
+  width: 2.5em;
+  height: 1.5em;
+  z-index: 1;
+  transition: all 300ms linear;
+}
+.credits label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.credits label .background {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 4em;
+  height: 4em;
+  border-radius: 50% 0 0 50%;
+  background: hsl(30, 18%, 87%);
+  transition: all 300ms linear;
+  z-index: -1;
+}
+.credits label .hamburger::after, .credits label .hamburger::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.3em;
+  background-color: hsl(332, 51%, 32%);
+  transition: all 300ms linear;
+}
+.credits label .hamburger::after {
+  top: 0;
+}
+.credits label .hamburger::before {
+  top: 100%;
+  transform: translateY(-100%);
+}
+.credits .attribution {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  transform: scaleX(0) scaleY(0);
+  transform-origin: top right;
+  transition: all 300ms linear;
+  gap: 2em;
+}
+.credits .attribution h5 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.4rem;
+}
+.credits .attribution h5 strong {
+  color: hsl(30, 10%, 34%);
+}
+.credits .attribution h5 a {
+  color: #f74957;
+}
+.credits:has(input:checked) {
+  box-shadow: inset -40em 0 0 hsl(30, 54%, 90%), -0.1em 0.5em 1em 0 rgba(0, 0, 0, 0.1568627451);
+}
+.credits:has(input:checked) label {
+  transform: translateY(50%);
+}
+.credits:has(input:checked) label .background {
+  top: 0;
+  transform: translate(50%, -18.5%);
+  border-radius: 0 0 0 50%;
+}
+.credits:has(input:checked) label .hamburger::after {
+  transform: rotateZ(45deg) translateY(100%) translateX(30%);
+}
+.credits:has(input:checked) label .hamburger::before {
+  transform: rotateZ(-45deg) translateY(-100%) translateX(30%);
+}
+.credits:has(input:checked) .attribution {
+  transform: scaleX(1) scaleY(1);
+}
+
+@media screen and (width >= 48em) {
+  body {
+    padding: 4em 12em;
+  }
+  header, main, footer {
+    padding: 0;
+  }
+  img {
+    border-radius: 0.8em;
+    aspect-ratio: 6/2;
+    -o-object-fit: cover;
+       object-fit: cover;
+    image-rendering: pixelated;
+  }
+}/*# sourceMappingURL=index.css.map */
