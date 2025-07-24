@@ -25,8 +25,6 @@ img
 //Style
 
 body
-    display: grid
-    gap: 4em
     background: $White
 
 h1
@@ -54,6 +52,11 @@ p, li, h3, td, th
 p, li
     font-size: 1.6rem
     color: $Stone_900
+
+.container
+    display: flex
+    flex-direction: column
+    gap: 4em
 
 header, main, footer
     display: flex
@@ -209,13 +212,26 @@ footer
 @media screen and (width >= 48em)
 
     body
-        padding: 4em 12em
+        display: grid
+        place-items: center
+        background: $Stone_100
+        padding: 6em 0
+
+    .container
+        max-width: 64em
+        padding: 4em
+        background: $White
+        border-radius: .8em
 
     header, main, footer
         padding: 0
 
+    header
+        .preparation-time
+            width: 100%
+
     img
         border-radius: .8em
-        aspect-ratio: 6/2
+        aspect-ratio: 4/2
         object-fit: cover
         image-rendering: pixelated

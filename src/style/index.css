@@ -33,8 +33,6 @@ img {
 }
 
 body {
-  display: grid;
-  gap: 4em;
   background: hsl(0, 0%, 100%);
 }
 
@@ -69,6 +67,12 @@ p, li, h3, td, th {
 p, li {
   font-size: 1.6rem;
   color: hsl(24, 5%, 18%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
 }
 
 header, main, footer {
@@ -247,14 +251,26 @@ footer table td {
 
 @media screen and (width >= 48em) {
   body {
-    padding: 4em 12em;
+    display: grid;
+    place-items: center;
+    background: hsl(30, 54%, 90%);
+    padding: 6em 0;
+  }
+  .container {
+    max-width: 64em;
+    padding: 4em;
+    background: hsl(0, 0%, 100%);
+    border-radius: 0.8em;
   }
   header, main, footer {
     padding: 0;
   }
+  header .preparation-time {
+    width: 100%;
+  }
   img {
     border-radius: 0.8em;
-    aspect-ratio: 6/2;
+    aspect-ratio: 4/2;
     -o-object-fit: cover;
        object-fit: cover;
     image-rendering: pixelated;
